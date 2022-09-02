@@ -17,6 +17,8 @@
 		2E4DBD5E28C22895007DC8FC /* ArtistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4DBD5D28C22895007DC8FC /* ArtistsView.swift */; };
 		2E4DBD6028C228B5007DC8FC /* AlbumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4DBD5F28C228B5007DC8FC /* AlbumsView.swift */; };
 		2E4DBD6228C228CB007DC8FC /* SongsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4DBD6128C228CB007DC8FC /* SongsView.swift */; };
+		2E4DBD6428C2292E007DC8FC /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4DBD6328C2292E007DC8FC /* Song.swift */; };
+		2E4DBD6628C22955007DC8FC /* FileControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4DBD6528C22955007DC8FC /* FileControls.swift */; };
 		2EDDC00428C2249300AE437F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EDDC00328C2249300AE437F /* Assets.xcassets */; };
 		2EDDC00A28C2249300AE437F /* VLC-watchOS WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2EDDC00928C2249300AE437F /* VLC-watchOS WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2EDDC00F28C2249300AE437F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDDC00E28C2249300AE437F /* ContentView.swift */; };
@@ -528,6 +530,8 @@
 		2E4DBD5D28C22895007DC8FC /* ArtistsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsView.swift; sourceTree = "<group>"; };
 		2E4DBD5F28C228B5007DC8FC /* AlbumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsView.swift; sourceTree = "<group>"; };
 		2E4DBD6128C228CB007DC8FC /* SongsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsView.swift; sourceTree = "<group>"; };
+		2E4DBD6328C2292E007DC8FC /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		2E4DBD6528C22955007DC8FC /* FileControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileControls.swift; sourceTree = "<group>"; };
 		2E995114543D1E41A5A82486 /* Pods-VLC-iOS-Screenshots.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VLC-iOS-Screenshots.release.xcconfig"; path = "Target Support Files/Pods-VLC-iOS-Screenshots/Pods-VLC-iOS-Screenshots.release.xcconfig"; sourceTree = "<group>"; };
 		2EDDC00128C2249100AE437F /* VLC-watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VLC-watchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EDDC00328C2249300AE437F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1296,7 +1300,9 @@
 			children = (
 				2EDDC00E28C2249300AE437F /* ContentView.swift */,
 				2E4DBD5D28C22895007DC8FC /* ArtistsView.swift */,
+				2E4DBD6328C2292E007DC8FC /* Song.swift */,
 				2E4DBD5F28C228B5007DC8FC /* AlbumsView.swift */,
+				2E4DBD6528C22955007DC8FC /* FileControls.swift */,
 				2E4DBD6128C228CB007DC8FC /* SongsView.swift */,
 				2EDDC01028C2249300AE437F /* VLCApp.swift */,
 				2EDDC01228C2249400AE437F /* ComplicationController.swift */,
@@ -3207,6 +3213,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E4DBD6428C2292E007DC8FC /* Song.swift in Sources */,
+				2E4DBD6628C22955007DC8FC /* FileControls.swift in Sources */,
 				2EDDC00F28C2249300AE437F /* ContentView.swift in Sources */,
 				2E4DBD6228C228CB007DC8FC /* SongsView.swift in Sources */,
 				2E4DBD5E28C22895007DC8FC /* ArtistsView.swift in Sources */,
