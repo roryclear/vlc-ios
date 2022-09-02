@@ -30,6 +30,9 @@ class MediaCategoryViewController: UICollectionViewController, UISearchBarDelega
     var model: MediaLibraryBaseModel
     private var secondModel: MediaLibraryBaseModel
     private var services: Services
+    
+    //roryclear move later??
+    let fileControls = FileControlsiOS.shared
 
     var searchBar = UISearchBar(frame: .zero)
     var isSearching: Bool = false
@@ -362,6 +365,8 @@ class MediaCategoryViewController: UICollectionViewController, UISearchBarDelega
                 updateCollectionViewForAlbum()
             }
         }
+        //roryclear move later?
+        fileControls.configureWatchKitSesstion()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
