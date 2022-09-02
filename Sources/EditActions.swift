@@ -73,6 +73,16 @@ extension EditActions {
             addToNewPlaylist()
         }
     }
+    
+    //roryclear move elsewhere?
+    //fix for albums / artists / genres
+    func addToWatch(_ completion: ((completionState) -> Void)? = nil) {
+        self.completion = completion
+        FileControlsiOS.shared.addToWatch(for: URLs())
+
+        print("FFS")
+    }
+    //
 
     func addToMediaGroup(_ completion: ((completionState) -> Void)? = nil) {
         self.completion = completion

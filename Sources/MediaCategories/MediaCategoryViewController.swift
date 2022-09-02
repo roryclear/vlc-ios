@@ -930,6 +930,12 @@ private extension MediaCategoryViewController {
                         }
                     }
                 })
+            case .addToWatch:
+                return $0.action({
+                    _ in
+                    print("nothing doing yet") //roryclear fix later
+                })
+                
             case .play:
                 return $0.action({
                     _ in

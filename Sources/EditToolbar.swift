@@ -16,6 +16,7 @@ protocol EditToolbarDelegate: AnyObject {
     func editToolbarDidRemoveFromMediaGroup(_ editToolbar: EditToolbar)
     func editToolbarDidRename(_ editToolbar: EditToolbar)
     func editToolbarDidShare(_ editToolbar: EditToolbar)
+    func editToolbalDidAddToWatch(_ editToolbar: EditToolbar)
 }
 
 class EditToolbar: UIView {
@@ -54,6 +55,7 @@ class EditToolbar: UIView {
     private var renameButton: UIButton!
     private var deleteButton: UIButton!
     private(set) var shareButton: UIButton!
+    private(set) var addToWatchButton: UIButton!
 
     @objc func addToPlaylist() {
         delegate?.editToolbarDidAddToPlaylist(self)
@@ -78,6 +80,10 @@ class EditToolbar: UIView {
     @objc func share() {
         delegate?.editToolbarDidShare(self)
     }
+    
+    @objc func addToWatch() {
+        delegate?.editToolbalDidAddToWatch(self)
+    }
 
     func enableEditActions(_ enable: Bool) {
         addToPlaylistButton.isEnabled = enable
@@ -86,6 +92,7 @@ class EditToolbar: UIView {
         renameButton.isEnabled = enable
         deleteButton.isEnabled = enable
         shareButton.isEnabled = enable
+        addToWatchButton.isEnabled = enable
     }
 
     func updateEditToolbar(for model: MediaLibraryBaseModel) {
@@ -103,6 +110,7 @@ class EditToolbar: UIView {
         renameButton.isHidden = true
         deleteButton.isHidden = true
         shareButton.isHidden = true
+        addToWatchButton.isHidden = true
 
         enableEditActions(false)
 
@@ -122,6 +130,8 @@ class EditToolbar: UIView {
                 deleteButton.isHidden = false
             case .share:
                 shareButton.isHidden = false
+            case .addToWatch:
+                addToWatchButton.isHidden = false
             //Not supported in edit mode
             case .play,
                  .playNextInQueue,
@@ -133,7 +143,7 @@ class EditToolbar: UIView {
 
     private func setupRightStackView() {
         let buttons = EditButtonsFactory.generate(buttons: [.addToMediaGroup, .removeFromMediaGroup,
-                                                            .rename, .delete, .share])
+                                                            .rename, .delete, .share, .addToWatch])
         for button in buttons {
             switch button.identifier {
             case .addToPlaylist:
@@ -153,6 +163,9 @@ class EditToolbar: UIView {
             case .share:
                 shareButton = button.button(#selector(share))
                 rightStackView.addArrangedSubview(shareButton)
+            case .addToWatch:
+                addToWatchButton = button.button(#selector(addToWatch))
+                rightStackView.addArrangedSubview(addToWatchButton)
             //Not supported in edit mode
             case .play,
                  .playNextInQueue,

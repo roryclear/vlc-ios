@@ -18,6 +18,7 @@
     case play
     case playNextInQueue
     case appendToQueue
+    case addToWatch
 }
 
 class EditButton {
@@ -78,6 +79,7 @@ class EditButtonsFactory {
         }
         actionList.append(.delete)
         actionList.append(.share)
+        actionList.append(.addToWatch)
         return actionList
     }
 
@@ -142,6 +144,12 @@ class EditButtonsFactory {
                                                   image: "appendToQueue",
                                                   accessibilityLabel: NSLocalizedString("APPEND_TO_QUEUE_LABEL", comment: ""),
                                                   accessibilityHint: NSLocalizedString("APPEND_TO_QUEUE_HINT", comment: "")))
+            case .addToWatch:
+                editButtons.append(EditButton(identifier: button,
+                                              title: NSLocalizedString("ADD_TO_WATCH", comment: ""),
+                                              image: "addToWatch",
+                                              accessibilityLabel: NSLocalizedString("ADD_TO_WATCH", comment: ""),
+                                              accessibilityHint: NSLocalizedString("ADD_TO_WATCH", comment: "")))
             }
         }
         return editButtons

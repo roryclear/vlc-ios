@@ -161,6 +161,23 @@ private extension EditController {
 // MARK: - VLCEditToolbarDelegate
 
 extension EditController: EditToolbarDelegate {
+    
+    func editToolbalDidAddToWatch(_ editToolbar: EditToolbar) {
+        print("roryclear editController addToWatch")
+        guard !selectedCellIndexPaths.isEmpty else {
+            return
+        }
+        editActions.objects.removeAll()
+        getSelectedObjects()
+        editActions.addToWatch({
+            [weak self] state in
+            if state == .success || state == .fail {
+                self?.resetSelections(resetUI: false)
+                self?.delegate?.editControllerDidFinishEditing(editController: self)
+            }
+        })
+    }
+        
     private func getSelectedObjects() {
         let files = model.anyfiles
 

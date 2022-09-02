@@ -554,3 +554,6 @@
 
 "TITLESELECTION_BACKGROUND_LABEL" = "Title selection background";
 "TITLESELECTION_BACKGROUND_HINT" = "Tap to remove the view.";
+
+/* New strings */
+"ADD_TO_WATCH" = "ADD_TO_WATCH";
