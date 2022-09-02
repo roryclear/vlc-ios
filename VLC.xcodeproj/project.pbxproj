@@ -14,6 +14,9 @@
 		26F1BFD01A770408001DF30C /* libMediaVLC.xml in Resources */ = {isa = PBXBuildFile; fileRef = 26F1BFCF1A770408001DF30C /* libMediaVLC.xml */; };
 		29125E5617492219003F03E5 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 29125E5417492219003F03E5 /* index.html */; };
 		2915544317490D4A00B86CAD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2915544217490D4A00B86CAD /* Security.framework */; };
+		2E4DBD5E28C22895007DC8FC /* ArtistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4DBD5D28C22895007DC8FC /* ArtistsView.swift */; };
+		2E4DBD6028C228B5007DC8FC /* AlbumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4DBD5F28C228B5007DC8FC /* AlbumsView.swift */; };
+		2E4DBD6228C228CB007DC8FC /* SongsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4DBD6128C228CB007DC8FC /* SongsView.swift */; };
 		2EDDC00428C2249300AE437F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EDDC00328C2249300AE437F /* Assets.xcassets */; };
 		2EDDC00A28C2249300AE437F /* VLC-watchOS WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2EDDC00928C2249300AE437F /* VLC-watchOS WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2EDDC00F28C2249300AE437F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDDC00E28C2249300AE437F /* ContentView.swift */; };
@@ -522,6 +525,9 @@
 		26F1BFCF1A770408001DF30C /* libMediaVLC.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = libMediaVLC.xml; sourceTree = "<group>"; };
 		29125E5417492219003F03E5 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		2915544217490D4A00B86CAD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		2E4DBD5D28C22895007DC8FC /* ArtistsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsView.swift; sourceTree = "<group>"; };
+		2E4DBD5F28C228B5007DC8FC /* AlbumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsView.swift; sourceTree = "<group>"; };
+		2E4DBD6128C228CB007DC8FC /* SongsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsView.swift; sourceTree = "<group>"; };
 		2E995114543D1E41A5A82486 /* Pods-VLC-iOS-Screenshots.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VLC-iOS-Screenshots.release.xcconfig"; path = "Target Support Files/Pods-VLC-iOS-Screenshots/Pods-VLC-iOS-Screenshots.release.xcconfig"; sourceTree = "<group>"; };
 		2EDDC00128C2249100AE437F /* VLC-watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VLC-watchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EDDC00328C2249300AE437F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1289,6 +1295,9 @@
 			isa = PBXGroup;
 			children = (
 				2EDDC00E28C2249300AE437F /* ContentView.swift */,
+				2E4DBD5D28C22895007DC8FC /* ArtistsView.swift */,
+				2E4DBD5F28C228B5007DC8FC /* AlbumsView.swift */,
+				2E4DBD6128C228CB007DC8FC /* SongsView.swift */,
 				2EDDC01028C2249300AE437F /* VLCApp.swift */,
 				2EDDC01228C2249400AE437F /* ComplicationController.swift */,
 				2EDDC01428C2249500AE437F /* Assets.xcassets */,
@@ -3199,8 +3208,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EDDC00F28C2249300AE437F /* ContentView.swift in Sources */,
+				2E4DBD6228C228CB007DC8FC /* SongsView.swift in Sources */,
+				2E4DBD5E28C22895007DC8FC /* ArtistsView.swift in Sources */,
 				2EDDC01128C2249400AE437F /* VLCApp.swift in Sources */,
 				2EDDC01328C2249400AE437F /* ComplicationController.swift in Sources */,
+				2E4DBD6028C228B5007DC8FC /* AlbumsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
