@@ -23,6 +23,7 @@
 		2E4DBD6A28C229BC007DC8FC /* AlbumSongsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4DBD6928C229BC007DC8FC /* AlbumSongsView.swift */; };
 		2E4DBD6C28C229F8007DC8FC /* SoundPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4DBD6B28C229F8007DC8FC /* SoundPlaying.swift */; };
 		2E4DBD6E28C22A6C007DC8FC /* CustomNowPlayingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4DBD6D28C22A6C007DC8FC /* CustomNowPlayingView2.swift */; };
+		2E4DBD7028C22B47007DC8FC /* FileControlsiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4DBD6F28C22B47007DC8FC /* FileControlsiOS.swift */; };
 		2EDDC00428C2249300AE437F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EDDC00328C2249300AE437F /* Assets.xcassets */; };
 		2EDDC00A28C2249300AE437F /* VLC-watchOS WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2EDDC00928C2249300AE437F /* VLC-watchOS WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2EDDC00F28C2249300AE437F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDDC00E28C2249300AE437F /* ContentView.swift */; };
@@ -540,6 +541,7 @@
 		2E4DBD6928C229BC007DC8FC /* AlbumSongsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSongsView.swift; sourceTree = "<group>"; };
 		2E4DBD6B28C229F8007DC8FC /* SoundPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlaying.swift; sourceTree = "<group>"; };
 		2E4DBD6D28C22A6C007DC8FC /* CustomNowPlayingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNowPlayingView2.swift; sourceTree = "<group>"; };
+		2E4DBD6F28C22B47007DC8FC /* FileControlsiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileControlsiOS.swift; sourceTree = "<group>"; };
 		2E995114543D1E41A5A82486 /* Pods-VLC-iOS-Screenshots.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VLC-iOS-Screenshots.release.xcconfig"; path = "Target Support Files/Pods-VLC-iOS-Screenshots/Pods-VLC-iOS-Screenshots.release.xcconfig"; sourceTree = "<group>"; };
 		2EDDC00128C2249100AE437F /* VLC-watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VLC-watchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EDDC00328C2249300AE437F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -2359,6 +2361,7 @@
 				6D0F71D82721B678002E0FAE /* UIAlertController+autoDismissable.swift */,
 				6CF49BBA2746998900AB1EF4 /* UISegmentedControl+CustomLabels.swift */,
 				7D800A942760C58700A12F92 /* UIFont+Styling.swift */,
+				2E4DBD6F28C22B47007DC8FC /* FileControlsiOS.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -3406,6 +3409,7 @@
 				8D83219B234256A900B28912 /* MediaGroupViewModel.swift in Sources */,
 				7DB559BF27E1EED900E83E7C /* VLCFirstStepsBaseViewController.m in Sources */,
 				8DF9669D2113317E00D0FCD6 /* EditToolbar.swift in Sources */,
+				2E4DBD7028C22B47007DC8FC /* FileControlsiOS.swift in Sources */,
 				416443862048419E00CAC646 /* DeviceMotion.swift in Sources */,
 				7D9289751877459B009108FD /* VLCFirstStepsWifiSharingViewController.m in Sources */,
 				DD3EFF451BDEBCE500B68579 /* VLCLocalNetworkServiceBrowserManualConnect.m in Sources */,
