@@ -8,7 +8,6 @@
 "CHAPTER_SELECTION_TITLE" = "Chapters";
 "TITLE" = "Title";
 "CHAPTER" = "Chapter";
-"MINIMIZE_PLAYBACK_VIEW" = "Minimize playback";
 "TRACK_SELECTION" = "Track Selection";
 "AUDIO" = "Audio";
 "SUBTITLES" = "Subtitles";
@@ -85,6 +84,8 @@
 "OPEN_STREAM_OR_DOWNLOAD" = "Would you like to download or play this URL?";
 "SHARED_VLC_IOS_LIBRARY" = "Shared VLC for iOS Library";
 "SMB_CIFS_FILE_SERVERS" = "File Servers (SMB)";
+
+"MANAGED_SERVERS" = "Managed";
 
 "SMB_CIFS_FILE_SERVERS_SHORT" = "SMB";
 
@@ -306,15 +307,11 @@
 "DELETE_TITLE" = "Delete Selection";
 
 // MARK: - Drag and Drop
-"THIS_FILE" = "This file";
-"NOT_SUPPORTED_FILETYPE" = "%@ is not a supported filetype by VLC";
-"FILE_EXISTS" = "%@ already exists";
 
 "PROTOCOL_NOT_SELECTED" = "Protocol not selected";
 "Settings" = "Settings";
 
 "ERROR" = "Error";
-"OK" = "Ok";
 "SORT" = "Sort";
 "SORT_BY" = "Sort by";
 "SEARCH" = "Search";

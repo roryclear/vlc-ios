@@ -1,0 +1,137 @@
+fastlane_version '2.82.0'
+
+require './helpers/VLC.rb'
+require './helpers/version.rb'
+
+#### Release ####
+
+desc 'Release a new version of VLC to the App Store'
+desc ''
+desc 'This action requires the following parameters:'
+desc '- platform (iOS or tvOS)'
+desc ''
+desc 'This action does the following:'
+desc '- Ensure a clean git status'
+desc '- Clear derived data'
+desc '- Set the version, bump the build number and commit the change'
+desc '- Apply the privateConstants which include the credentials'
+desc '- Install cocoapods dependencies'
+desc '- Build and sign the app'
+desc '- Update the changelog from the NEWS file'
+desc '- Push the version bump'
+lane :release do |options|
+  platform = get_platform options
+  version = get_version options
+  ensure_git_status_clean
+  clear_derived_data
+  set_version_bump_build_and_commit(platform: platform, version: version)
+  git_apply_private_constants
+  cocoapods(repo_update: true)
+  gym(scheme: "VLC-#{platform}")
+  pilot(app_platform: platform == 'tvOS' ? 'appletvos' : 'ios')
+  update_changelog(platform: platform, version: version)
+  push_to_git_remote
+end
+
+desc 'Check style and conventions'
+lane :lint do
+  rubocop
+  swiftlint(executable: 'Pods/SwiftLint/swiftlint', strict: true)
+end
+
+lane :ci do
+  lint
+  xcode_select '/Applications/Xcode.app'
+  # Ideally we have iOS 9 support here but this is not yet added
+  # https://discuss.circleci.com/t/please-add-simulators-for-ios-9-10-to-xcode-9-image/16530
+  xcodebuild(
+    workspace: 'VLC.xcworkspace',
+    scheme: 'VLC-iOS',
+    configuration: 'Debug',
+    clean: true,
+    build: true,
+    destination: 'platform=iOS Simulator,name=iPhone 6s,OS=10.3.1'
+  )
+  xcodebuild(
+    workspace: 'VLC.xcworkspace',
+    scheme: 'VLC-tvOS',
+    configuration: 'Debug',
+    clean: true,
+    build: true,
+    destination: 'platform=tvOS Simulator,name=Apple TV,OS=12.2'
+  )
+  test
+end
+
+desc 'Take screenshots'
+lane :screenshots do
+  capture_screenshots(stop_after_first_error: true)
+end
+
+#### Tests ####
+
+desc 'Run Tests'
+lane :test do
+  cocoapods(repo_update: true)
+  scan(scheme: 'VLC-iOS-Tests')
+  scan(scheme: 'VLC-iOS-UITests')
+end
+
+#### Private ####
+
+desc 'Bump and commit app version and build number'
+private_lane :set_version_bump_build_and_commit do |options|
+  if options[:platform] == 'tvOS'
+    increment_build_number_in_plist(VLC.info_plist_path[:tvOS])
+    set_version_number_in_plist(VLC.info_plist_path[:tvOS], options[:version])
+  elsif options[:platform] == 'iOS'
+    increment_build_number_in_plist(VLC.info_plist_path[:iOS])
+    set_version_number_in_plist(VLC.info_plist_path[:iOS], options[:version])
+  end
+
+  commit_version_bump(message: 'Version Bump by fastlane', force: true)
+end
+
+desc 'Update changelog in iTunes Connect with the content from doc/NEWS.md'
+private_lane :update_changelog do |options|
+  platform = options[:platform]
+  version = options[:version]
+
+  regex = /## #{platform} \[#{version}\](.*?)^##/m
+  if (match = File.read('../doc/NEWS.md').match(regex))
+    changelog = match.captures
+    set_changelog(app_identifier: 'org.videolan.vlc-ios',
+                  username: '*',
+                  changelog: changelog.first.strip,
+                  team_name: 'VideoLAN',
+                  platform: platform == 'tvOS' ? 'appletvos' : 'ios')
+  else
+    puts("⚠️  Changelog not found for: #{platform} [#{version}]")
+    exit 1
+  end
+end
+
+desc 'Apply privateConstants patch including credentials'
+private_lane :git_apply_private_constants do
+  Dir.chdir('..') do
+    sh('xcrun git apply 0001-privateConstants.patch')
+  end
+end
+
+desc 'Return the platform received as parameter, or ask for it if missing'
+private_lane :get_platform do |options|
+  platform = options[:platform]
+  platform = prompt(text: 'Platform [iOS, tvOS]: ') if !platform || platform.empty?
+  if platform != 'iOS' && platform != 'tvOS'
+    puts("⚠️  Platform '#{platform}' not supported")
+    exit 1
+  end
+  platform
+end
+
+desc 'Return the version received as parameter, or ask for it if missing'
+private_lane :get_version do |options|
+  version = options[:version]
+  version = ask('Enter a new version number: ') if !version || version.empty?
+  version
+end
