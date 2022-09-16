@@ -1709,7 +1709,6 @@
 		7D0C20B528CA085500CCFFEF /* Media Library */ = {
 			isa = PBXGroup;
 			children = (
-				DD29A3E81BF21E3D00A27A91 /* SharedConfig.xcconfig */,
 				7D94FCE416DE7D1000F2623B /* iOS specific classes */,
 				7DADC55C1704FAA8001DAC63 /* XIBs */,
 				A7924697170F0ED20036AAF2 /* iOS Resources */,
@@ -1724,7 +1723,6 @@
 				7D94FCDD16DE7D1000F2623B /* Frameworks */,
 				7D94FCDC16DE7D1000F2623B /* Products */,
 				412A87D01F3B89B000640BB7 /* Recovered References */,
-				023340A3B4C320149F526087 /* Pods */,
 				7DC869AF28CB75C400EE99F8 /* tvOS */,
 				7DC869AD28CB755C00EE99F8 /* Discovery */,
 				8DE1887221089AF200A091D2 /* MediaLibraryModel */,
