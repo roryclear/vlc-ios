@@ -19,7 +19,7 @@ struct CustomNowPlayingView2: View {
     @State var repeatButtonColor: Color
     var body: some View {
         TabView {
-            NowPlayingView()
+            NowPlayingView().padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0)) //roryclear fix this properly at some stage
             HStack {
                 Button {toggleShuffle()} label: {
                     Image(uiImage: shuffleSymbol).foregroundColor(.white)
