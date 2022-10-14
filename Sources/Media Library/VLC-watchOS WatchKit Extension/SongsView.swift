@@ -18,12 +18,14 @@ struct SongsView: View {
             ForEach(songs, id: \.self) {
                 SongRow(song: $0)
             }.onDelete(perform: removeRows)
+        }.onLoad {
+            songs = FileControls.shared.getAllMp3s()
         }
     }
     
     func removeRows(at offsets: IndexSet) {
         deleteSong(song: songs[offsets.first!])
-        songs.remove(atOffsets: offsets)
+        songs.remove(at: offsets.first!)
     }
     
 }
@@ -52,4 +54,31 @@ struct SongsView_Previews: PreviewProvider {
     static var previews: some View {
         SongsView()
     }
+}
+
+struct ViewDidLoadModifier: ViewModifier {
+
+    @State private var didLoad = false
+    private let action: (() -> Void)?
+
+    init(perform action: (() -> Void)? = nil) {
+        self.action = action
+    }
+
+    func body(content: Content) -> some View {
+        content.onAppear {
+            if didLoad == false {
+                didLoad = true
+                action?()
+            }
+        }
+    }
+
+}
+
+extension View {
+    func onLoad(perform action: (() -> Void)? = nil) -> some View {
+        modifier(ViewDidLoadModifier(perform: action))
+    }
+
 }
